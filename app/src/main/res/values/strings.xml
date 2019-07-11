@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">RokkhiFieldWork</string>
+
+    <string-array name="name">
+
+        <item>Manager</item>
+        <item>Owner</item>
+        <item>Guard</item>
+    </string-array>
+</resources>

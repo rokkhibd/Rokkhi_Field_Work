@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "350658386467",
+    "firebase_url": "https://rokkhi-field-work.firebaseio.com",
+    "project_id": "rokkhi-field-work",
+    "storage_bucket": "rokkhi-field-work.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:350658386467:android:f292c57bed632a6b",
+        "android_client_info": {
+          "package_name": "com.rokkhi.rokkhifieldwork"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "350658386467-9g4fuvka36r0i3jf227ump4ooiufiigd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rokkhi.rokkhifieldwork",
+            "certificate_hash": "4106edaa89d6c9c33af285d458bb7a10fb290fa9"
+          }
+        },
+        {
+          "client_id": "350658386467-38gf3dqbcv5gr20vc5flvs85tl8u09dq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsw89jbiPIyM5jnFXkwCuwqWD0_xy3vnQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "350658386467-38gf3dqbcv5gr20vc5flvs85tl8u09dq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

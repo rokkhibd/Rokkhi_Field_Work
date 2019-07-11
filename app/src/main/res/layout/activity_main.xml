@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:background="@color/colorPrimary"
+    >
+
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity"
+        >
+
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            style="@style/AppTheme.AppBarOverlay"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.Toolbar
+                app:popupTheme="@style/AppTheme.PopupOverlay"
+                android:background="?attr/colorPrimary"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/logo_image"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/logotext"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content" />
+
+
+
+
+
+
+                </RelativeLayout>
+
+
+
+
+            </android.support.v7.widget.Toolbar>
+
+
+
+
+        </android.support.design.widget.AppBarLayout>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/house_photo"
+            android:layout_width="120dp"
+            android:layout_below="@id/app_bar"
+            android:layout_height="120dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/house"
+            app:civ_border_color="@color/black"
+            app:civ_border_width=".5dp" />
+
+
+        <LinearLayout
+            android:id="@+id/layout_one"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:orientation="vertical"
+            android:layout_below="@id/house_photo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:textColor="@color/orange"
+                android:text="Whom we talked"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_weight="7"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:layout_weight="6"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/grey_border_bottom"
+                    android:id="@+id/person_we_talked"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <Spinner
+                    android:id="@+id/spinner_id"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"></Spinner>
+
+            </LinearLayout>
+
+
+
+
+            <TextView
+                android:layout_marginTop="5dp"
+                android:textSize="15sp"
+                android:textColor="@color/orange"
+                android:text="Address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+            <LinearLayout
+                android:layout_weight="7"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:layout_weight="6"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/grey_border_bottom"
+                    android:id="@+id/house_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:id="@+id/map_image"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:src="@drawable/google_maps"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:textSize="15sp"
+                android:textColor="@color/orange"
+                android:text="Owner Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <EditText
+
+                android:layout_marginTop="5dp"
+                android:id="@+id/owner_name"
+                android:background="@drawable/grey_border_bottom"
+                android:inputType="text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:textSize="15sp"
+                android:textColor="@color/orange"
+                android:text="Owner Number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:layout_marginTop="5dp"
+                android:background="@drawable/grey_border_bottom"
+                android:id="@+id/owner_numbert"
+                android:inputType="number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:textSize="15sp"
+                android:textColor="@color/orange"
+                android:text="Manager Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:layout_marginTop="5dp"
+                android:id="@+id/manager_name"
+                android:background="@drawable/grey_border_bottom"
+                android:inputType="text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:textSize="15sp"
+                android:textColor="@color/orange"
+                android:text="Manager Number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:layout_marginTop="5dp"
+                android:background="@drawable/grey_border_bottom"
+                android:id="@+id/manager_number"
+                android:inputType="number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:textSize="15sp"
+                android:textColor="@color/orange"
+                android:text="Todays Date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:layout_weight="7"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <EditText
+                    android:background="@drawable/grey_border_bottom"
+                    android:layout_weight="6"
+                    android:id="@+id/todays_date"
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:id="@+id/todays_date_calendar"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:src="@drawable/calendar"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content" />
+
+
+            </LinearLayout>
+
+
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:textSize="15sp"
+                android:textColor="@color/orange"
+                android:text="Next Followup Date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:layout_weight="7"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:layout_weight="6"
+                    android:background="@drawable/grey_border_bottom"
+                    android:id="@+id/followUp_date"
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+
+                    android:id="@+id/nxt_following_date_calendar"
+                    android:layout_weight="1"
+                    android:src="@drawable/calendar"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+
+
+            <TextView
+               android:layout_marginTop="10dp"
+                android:textSize="15sp"
+                android:textColor="@color/orange"
+                android:text="*Write Something If Require"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:background="@drawable/grey_border_bottom"
+                android:textAlignment="textStart"
+                android:id="@+id/desc_box"
+                android:inputType="textMultiLine"
+                android:textAllCaps="false"
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                />
+
+
+
+
+
+
+
+        <ProgressBar
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:id="@+id/progress"
+            android:layout_below="@id/layout_one"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+        <Button
+
+            android:layout_below="@id/progress"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/white"
+            android:background="@drawable/round_button"
+            android:layout_marginLeft="70dp"
+            android:layout_marginRight="70dp"
+            android:text="Save Info"
+            android:id="@+id/save_info_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:layout_below="@id/save_info_btn"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/white"
+            android:background="@drawable/round_button"
+            android:layout_marginLeft="70dp"
+            android:layout_marginRight="70dp"
+            android:text="Show Info"
+            android:id="@+id/show_info_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+       </LinearLayout>
+
+    </RelativeLayout>
+
+</ScrollView>
+
+
+
+
+
