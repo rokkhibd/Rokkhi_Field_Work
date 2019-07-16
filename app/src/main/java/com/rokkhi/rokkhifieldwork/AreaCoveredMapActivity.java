@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -28,7 +29,9 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreSettings;
 import com.google.firebase.firestore.GeoPoint;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
@@ -54,7 +57,7 @@ public class AreaCoveredMapActivity extends FragmentActivity implements OnMapRea
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_area_coverd_map);
 
-        db=FirebaseFirestore.getInstance();
+        //db=FirebaseFirestore.getInstance();
 
         SupportMapFragment supportMapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.area_map);
 
@@ -73,46 +76,32 @@ public class AreaCoveredMapActivity extends FragmentActivity implements OnMapRea
             //getLastKnownLocation();
         }
 
-        db.collection("AreaLocation").document().get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                if (documentSnapshot.exists()){
-                    String area_latitude=documentSnapshot.getString("Latitude");
-                    String area_longitude=documentSnapshot.getString("Longitude");
 
-                    latitude=Double.parseDouble(area_latitude);
-                    longitude=Double.parseDouble(area_longitude);
-                }
-            }
-        });
-
-        MarkerOptions markerOptions=new MarkerOptions();
-        ArrayList<LatLng>latLngs=new ArrayList<>();
-        latLngs.add(new LatLng(latitude,longitude));
+        FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+        FirebaseFirestoreSettings settings = new FirebaseFirestoreSettings.Builder()
+                .setTimestampsInSnapshotsEnabled(true)
+                .build();
 
 
-        for (LatLng point : latLngs) {
-            markerOptions.position(point);
-            markerOptions.title("someTitle");
-            markerOptions.snippet("someDesc");
-            googleMap.addMarker(markerOptions);
-        }
-
-       /* Marker m1 = googleMap.addMarker(new MarkerOptions()
-                .position(new LatLng(latitude,longitude))
-                .anchor(0.5f, 0.5f)
-                .title("Title1")
-                .snippet("Snippet1")
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
-
-
-        Marker m2 = googleMap.addMarker(new MarkerOptions()
-                .position(new LatLng(23.7931355,90.405023))
-                .anchor(0.5f, 0.5f)
-                .title("Title2")
-                .snippet("Snippet2")
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
-*/
+        firestore.collection("AreaLocation")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                mMap.addMarker(new MarkerOptions()
+                                        .position(new LatLng( Double.parseDouble(document.getData().get("Latitude").toString()) ,Double.parseDouble(document.getData().get("Longitude").toString())))
+                                        .anchor(0.5f, 0.5f)
+                                        .title("Title1")
+                                        .snippet("Snippet1")
+                                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
+                            }
+                        } else {
+                            Log.d("temp", "Error getting documents: ", task.getException());
+                        }
+                    }
+                });
     }
 
     private void buildGoogleApiClient() {

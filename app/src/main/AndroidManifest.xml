@@ -12,6 +12,9 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
 
+
+
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -24,7 +27,7 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyA9Qap99VSh4885BKvTirGAndyetG4CmU8" />
+            android:value="AIzaSyC5XgkW3ZXteStY7xPwWJ0_ZwwruhQAKeM" />
 
         <activity android:name=".SeeLocationActivity" />
         <activity android:name=".UpDateActivity" />
