@@ -104,6 +104,7 @@ public class AreaCoveredMapActivity extends FragmentActivity implements OnMapRea
                 });
     }
 
+
     private void buildGoogleApiClient() {
         googleApiClient = new GoogleApiClient.Builder(this)
                 .addConnectionCallbacks(this)
